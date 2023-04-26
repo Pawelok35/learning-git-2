@@ -1,0 +1,270 @@
+@charset "UTF-8";
+/* Global */
+*, * ::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  background: #fff;
+  color: #3d3d3d;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 108px 0 108px 0;
+}
+
+/* Splash */
+.splash {
+  height: 100vh;
+  position: relative;
+  background-image: url("https://images.pexels.com/photos/5561913/pexels-photo-5561913.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.splash-inner {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ??? */
+}
+
+.splash i {
+  font-size: 30px;
+  background: #36A1D4;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+}
+
+.page-title {
+  color: #F2582F;
+  font-size: 60px;
+  margin: 48px 0 0 0;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+}
+
+.skillex:after {
+  position: absolute;
+  content: "";
+  background: yellow;
+  width: 100px;
+  height: 20px;
+  bottom: -24px;
+  left: 50%;
+}
+
+.page-subtitle {
+  color: #F2582F;
+  font-size: 22px;
+  margin: 48px 0 0 0;
+}
+
+/* Intro */
+.intro {
+  background: #fff;
+}
+
+.intro p {
+  width: 70%;
+  margin: 0 auto;
+  padding: 48px 0;
+  font-size: 24px;
+  border-top: 1px solid #3d3d3d;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.section-title {
+  position: relative;
+  font-size: 36px;
+  margin: 0 0 60px 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.section-title::after {
+  position: absolute;
+  content: "";
+  bottom: -12px;
+  left: 50%;
+  width: 50px;
+  height: 10px;
+  transform: translateX(-50%);
+  background: #36A1D4;
+}
+
+/* About */
+.about {
+  background: #F7F7F7;
+}
+
+/* Skills */
+[class^=skill-] {
+  position: relative;
+}
+
+.skill-image {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.skill-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 1s;
+}
+
+.skill-right .skill-image {
+  right: 0;
+  z-index: 1;
+}
+
+.skill-right .skill-description {
+  padding: 36px 55% 36px 0;
+  text-align: center;
+}
+
+.skill-left .skill-image {
+  z-index: 1;
+}
+
+.skill-left .skill-description {
+  padding: 36px 0 36px 55%;
+  text-align: center;
+}
+
+.skill-image img:hover {
+  transform: scale(2);
+}
+
+/* Gallery header */
+.gallery-header {
+  padding: 10px 0 10px 0;
+}
+
+/* Gallery */
+body .gallery { /*każde body ma swój margines 5-10px dlatego zeruje body w sekcji galeria + nadaje margines 0 | zdjęcia będą się ustawiać max lewa strona*/
+  margin: 0;
+}
+
+.gallery {
+  width: 100%; /* szerokość całej galerii 100%  */
+  display: flex; /* wyświetla zdjęcia w poziomie obok siebie */
+  flex-wrap: wrap; /* powoduje zawijanie elementów */
+}
+
+.gallery .photo-container {
+  position: relative;
+  width: 33.333%; /* tworzy szerokość kontenera = 1/3 galerii */
+}
+
+.gallery .photo-container img {
+  width: 100%; /* wszystkie zdjęcia mają 100% szerokości czyli max photo-container który ma 33.333% galerii*/
+  display: block; /* W TYM MIEJSCU NADANY BLOCK Z TEGO WZGLĘDU ABY POZBYĆ SIĘ LINI POMIĘDZY WIERSZAMI- wyświetlanie w pionie jeden pod drugim  */
+  height: 300px; /* stała wysokość 300px */
+}
+
+.gallery .photo-container .layer { /* stylizuje to co na zdjęciu ma się wyświetlać i w którym miejscu */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background: rgba(96, 176, 96, 0.5);
+  display: none; /* gdy nie najeżdżam to jest jasne - nie aktywne*/
+}
+
+.gallery .photo-container:hover .layer {
+  display: block; /* kiedy element ma się odświetlać */
+} /* gdy najeżdżam kursorem na element to display:none zmienia się -> na display:block */
+/* Button in gallery */
+button {
+  border: none;
+  background: #F2582F;
+  height: 40px;
+  width: 80px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e83605;
+}
+
+/* Button Viev-more */
+.button-view {
+  margin-top: 50px;
+  margin-left: 900px;
+}
+
+/* Button Submit */
+button[type=submit] {
+  height: 50px;
+  width: 100px;
+  background: #F2582F;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 50px;
+  font-family: "Lato";
+  box-shadow: 0 0 10px #131313;
+  display: block;
+  margin: 0 auto;
+}
+
+button[type=submit]:hover {
+  background: #e83605;
+}
+
+.gallery .photo-container .layer h4 {
+  color: #F7F7F7;
+  height: 42px;
+}
+
+/* Contact */
+.contact {
+  background: #171717;
+}
+
+.contact h2 {
+  color: #fff;
+}
+
+fieldset {
+  border: none;
+  width: 90%;
+  margin: 10px auto;
+}
+
+/* Footer */
+.page-footer {
+  background: #242424;
+  color: #fff;
+  padding: 10px 0 10px 0;
+}
+
+.container-footer {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}/*# sourceMappingURL=style.css.map */
